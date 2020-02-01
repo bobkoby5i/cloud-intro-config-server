@@ -10,8 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class ConfigClientApplication {
 
+	@Value("${message:Hello default}")
+	private static String message;
+
+
 	public static void main(String[] args) {
+
+
 		SpringApplication.run(ConfigClientApplication.class, args);
+		System.out.println("Message: " + message );
 	}
 
 	@RefreshScope
@@ -23,7 +30,12 @@ public class ConfigClientApplication {
 
 		@RequestMapping("/message")
 		String getMessage() {
+			System.out.println("Message: " + message );
 			return this.message;
 		}
 
+	}
+
 }
+
+
