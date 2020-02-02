@@ -7,18 +7,20 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @SpringBootApplication
 public class ConfigClientApplication {
 
-	@Value("${message:Hello default}")
-	private static String message;
+
+	@Value("${COMPUTERNAME}")
+	private static String local_variable;
 
 
 	public static void main(String[] args) {
 
-
 		SpringApplication.run(ConfigClientApplication.class, args);
-		System.out.println("Message: " + message );
+		//local_variable  = System.getProperty("COMPUTERNAME");
+		System.out.println("value: " + local_variable );
 	}
 
 	@RefreshScope
