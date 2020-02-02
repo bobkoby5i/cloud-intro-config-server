@@ -30,10 +30,14 @@ public class ConfigClientApplication {
 		@Value("${message:Hello default}")
 		private String message;
 
+		@Value("${key:Hello default}")
+		private String key;
+
 		@RequestMapping("/message")
 		String getMessage() {
 			System.out.println("Message: " + message );
-			return this.message;
+			System.out.println("key: " + key );
+			return "Message: " + this.message + "key: " + key  ;
 		}
 
 	}
